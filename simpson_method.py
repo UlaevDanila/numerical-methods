@@ -12,7 +12,7 @@ while abs(s) > 0.0000001:
     x = np.linspace(0, 1, N)
 
     for i in range(N-1):
-        s1 = s1 + (x[i+1]-x[i])/8*(f(x[i]) + 3*f((2*x[i]+x[i+1])/3)+3*f((x[i]+2*x[i+1])/3)+f(x[i+1]))
+        s1 =s1 + (x[i+1]-x[i])/8*(f(x[i]) + 3*f((2*x[i]+x[i+1])/3)+3*f((x[i]+2*x[i+1])/3)+f(x[i+1]))
 
     N = N*2
     x = np.linspace(0, 1, N)
