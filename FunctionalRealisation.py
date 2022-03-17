@@ -1,9 +1,6 @@
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
-
 
 def main_calc(a, b, epsilon, y0):
     x = np.arange(a, b+epsilon, epsilon) 
@@ -25,27 +22,21 @@ def main_calc(a, b, epsilon, y0):
 
     fig,ax = plt.subplots()
     plt.axis("equal")
-    ax.plot(x,y, label = 'Метод Рунге-Кутта')
+    ax.plot(x,y, label = 'Метод Рунге-Кутта', marker = "o")
     ax.plot(x,y1, label = 'Аналитическое решение')
+    plt.legend()
     plt.show()
 
     fid,ax = plt.subplots()
     plt.axis("equal")
     ax.plot(x,y, label = 'Метод Рунге-Кутта' )
+    plt.legend()
     plt.show()
 
     fid,ax = plt.subplots()
     plt.axis("equal")
     ax.plot(x,y1, label = 'Аналитическое решение' )
+    plt.legend()
     plt.show()
 
-    Result = pd.DataFrame({'x': x,
-                          'Аналитическое решение' : y1, 
-                          'Метод Рунге-Кутта' : y, 
-                          'Погрешность' : abs(y-y1)})
-
-    Result.to_excel('Result.xlsx')   
-   
-    os.startfile("Result.xlsx")
-
-    return(x, y)
+    return(x, y, y1)
